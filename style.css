@@ -551,3 +551,52 @@ footer .line-footer {
     display: none;
   }
 }
+
+/* teste */
+
+/* Estilos para telas grandes */
+
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 1020px) {
+  .certificados-mobile {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .certificados-wrapper {
+    display: flex;
+    transition: transform 0.3s ease; /* Suaviza o movimento */
+  }
+
+  .certificados-box {
+    flex: 0 0 100%; /* Cada item ocupa 100% da largura */
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+
+  /* Adicionando setas de navegação */
+  .certificados-mobile:before,
+  .certificados-mobile:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .certificados-mobile:before {
+    left: 0;
+    padding-left: 20px;
+  }
+
+  .certificados-mobile:after {
+    right: 0;
+    padding-right: 20px;
+  }
+}
+

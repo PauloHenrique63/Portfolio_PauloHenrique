@@ -46,63 +46,73 @@ document.querySelectorAll(".menu-mobile a").forEach((anchor) => {
 
 // teste
 
-// Selecionando o carrossel e a wrapper
-const carousel = document.querySelector(".certificados-mobile");
-const wrapper = document.querySelector(".certificados-wrapper");
 
-// Índice do item visível
-let currentIndex = 0;
-const totalItems = document.querySelectorAll(".certificados-box").length;
-
-// Função para mover para o próximo item
-function moveToNext() {
-  if (currentIndex < totalItems - 1) {
-    currentIndex++;
-  } else {
-    currentIndex = 0; // Voltar ao início quando alcançar o final
+  // Função para verificar se é um dispositivo móvel
+  function isMobile() {
+    return window.innerWidth <= 1020; // Considera telas menores ou iguais a 1020px como mobile
   }
-  updateCarouselPosition();
-}
 
-// Função para mover para o item anterior
-function moveToPrev() {
-  if (currentIndex > 0) {
-    currentIndex--;
-  } else {
-    currentIndex = totalItems - 1; // Vai para o último item
+  // Função para inicializar o carrossel
+  function initializeCarousel() {
+    const wrapper = document.querySelector('.certificados-wrapper');
+    const items = document.querySelectorAll('.certificados-box');
+    let currentIndex = 0;
+    const totalItems = items.length;
+
+    // Função para mover para o próximo item
+    function moveToNext() {
+      if (currentIndex < totalItems - 1) {
+        currentIndex++;
+      } else {
+        currentIndex = 0; // Volta ao primeiro item
+      }
+      updateCarouselPosition();
+    }
+
+    // Função para mover para o item anterior
+    function moveToPrev() {
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = totalItems - 1; // Vai para o último item
+      }
+      updateCarouselPosition();
+    }
+
+    // Função para atualizar a posição do carrossel
+    function updateCarouselPosition() {
+      const itemWidth = items[0].offsetWidth;
+      wrapper.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+    }
+
+    // Adicionando eventos para as setas (se necessário)
+    document.querySelector('.certificados-mobile').addEventListener('click', function(e) {
+      if (e.target === e.currentTarget.querySelector('.certificados-mobile:before')) {
+        moveToPrev();
+      } else if (e.target === e.currentTarget.querySelector('.certificados-mobile:after')) {
+        moveToNext();
+      }
+    });
+
+    // Detectando toque para deslizar
+    let startX, endX;
+
+    wrapper.addEventListener('touchstart', (e) => {
+      startX = e.changedTouches[0].pageX;
+    });
+
+    wrapper.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].pageX;
+      if (startX - endX > 50) {
+        moveToNext(); // Deslizar para a esquerda
+      } else if (endX - startX > 50) {
+        moveToPrev(); // Deslizar para a direita
+      }
+    });
   }
-  updateCarouselPosition();
-}
 
-// Função para atualizar a posição do carrossel
-function updateCarouselPosition() {
-  const itemWidth = document.querySelector(".certificados-box").offsetWidth;
-  wrapper.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-}
-
-// Adicionando eventos de clique para as setas de navegação
-carousel.addEventListener("click", function (e) {
-  if (e.target === carousel.querySelector(".certificados-mobile:before")) {
-    moveToPrev();
-  } else if (
-    e.target === carousel.querySelector(".certificados-mobile:after")
-  ) {
-    moveToNext();
+  // Inicia o carrossel se for um dispositivo mobile
+  if (isMobile()) {
+    initializeCarousel();
   }
-});
 
-// Detectando toque para deslizar
-let startX, endX;
-
-carousel.addEventListener("touchstart", (e) => {
-  startX = e.changedTouches[0].pageX;
-});
-
-carousel.addEventListener("touchend", (e) => {
-  endX = e.changedTouches[0].pageX;
-  if (startX - endX > 50) {
-    moveToNext(); // Deslizar para a esquerda
-  } else if (endX - startX > 50) {
-    moveToPrev(); // Deslizar para a direita
-  }
-});

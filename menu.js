@@ -43,3 +43,6 @@ document.querySelectorAll(".menu-mobile a").forEach((anchor) => {
     overlay.style.display = "none"; // Oculta a sobreposição
   });
 });
+
+
+

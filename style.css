@@ -190,6 +190,42 @@ section.topo-do-site .flex {
   }
 }
 
+/* estilo certificados */
+section.certificados {
+  padding: 40px 4%;
+}
+
+section.certificados .flex {
+  gap: 60px;
+}
+
+.certificados .certificados-box {
+  color: #fff;
+  padding: 40px;
+  margin-top: 45px;
+  border-radius: 20px;
+  transition: 0.2;
+}
+
+.certificados .certificados-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ffffff78;
+}
+
+.certificados .certificados-box img {
+  width: 100%; /* Ajusta a largura da imagem */
+  max-width: 95%; /* Limita a largura da imagem */
+  height: auto; /* Mantém a proporção da imagem */
+  width: auto;
+  object-fit: cover; /* Preenche a área sem distorcer a imagem */
+  border-radius: 10%; /* Torna a imagem arredondada */
+}
+
+.certificados .certificados-box h3 {
+  font-size: 25px;
+  margin: 15px 0;
+}
+
 /* estilo das especialidades */
 
 section.especialidades {
@@ -221,6 +257,11 @@ section.especialidades .flex {
 .especialidades .especialidades-box h3 {
   font-size: 28px;
   margin: 15px 0;
+}
+
+.especialidades .especialidades-box i {
+  font-size: 70px;
+  color: #00ff08;
 }
 
 /* estilo sobre */

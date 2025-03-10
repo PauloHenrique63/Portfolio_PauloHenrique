@@ -602,22 +602,22 @@ section.certificados .flex {
   section.certificados .flex {
     display: grid;
     grid-auto-flow: column;
-    justify-content: center; /* Centraliza os itens horizontalmente */
-    align-items: center; /* Centraliza os itens verticalmente */
     gap: 10px;
     overflow-x: auto;
     overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
+    scroll-padding: 0 50%; /* Garante que o scroll pare com o item centralizado */
   }
 
   .certificados .certificados-box {
     min-width: 300px;
     scroll-snap-align: center;
-    margin: 0 auto; /* Garante centralização */
   }
+}
+
 
   .certificados .certificados-box:hover {
     display: none;
   }
-}
+

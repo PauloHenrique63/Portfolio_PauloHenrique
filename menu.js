@@ -44,7 +44,7 @@ document.querySelectorAll(".menu-mobile a").forEach((anchor) => {
   });
 });
 
-// teste
+// teste carrosel certificados
 
 document.addEventListener("DOMContentLoaded", function () {
   const container = document.querySelector(".certificados .flex");

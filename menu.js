@@ -51,15 +51,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const nextBtn = document.querySelector(".next");
   const prevBtn = document.querySelector(".prev");
 
-  // Ajustar para garantir que a rolagem sempre centralize o próximo card
   const items = document.querySelectorAll(".certificados .certificados-box");
-  const itemWidth = items[0].offsetWidth + 10; // Largura do item mais o gap entre os cards
+  const itemWidth = items[0].offsetWidth + 10; // Largura do item + o gap entre os cards
 
   nextBtn.addEventListener("click", () => {
     // Verifica se o container já chegou ao final
     if (container.scrollLeft + container.offsetWidth < container.scrollWidth) {
-      container.scrollBy({
-        left: itemWidth, // Rolagem suave para o próximo item
+      // Calcula a posição de rolagem para o próximo card
+      const nextScrollPosition = container.scrollLeft + itemWidth;
+
+      // Rola suavemente para o próximo item e centraliza o card
+      container.scrollTo({
+        left: nextScrollPosition,
         behavior: "smooth",
       });
     }
@@ -68,8 +71,12 @@ document.addEventListener("DOMContentLoaded", function () {
   prevBtn.addEventListener("click", () => {
     // Verifica se o container já chegou ao início
     if (container.scrollLeft > 0) {
-      container.scrollBy({
-        left: -itemWidth, // Rolagem suave para o item anterior
+      // Calcula a posição de rolagem para o card anterior
+      const prevScrollPosition = container.scrollLeft - itemWidth;
+
+      // Rola suavemente para o card anterior e centraliza o card
+      container.scrollTo({
+        left: prevScrollPosition,
         behavior: "smooth",
       });
     }

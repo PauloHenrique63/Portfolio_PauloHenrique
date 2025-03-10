@@ -51,13 +51,27 @@ document.addEventListener("DOMContentLoaded", function () {
   const nextBtn = document.querySelector(".next");
   const prevBtn = document.querySelector(".prev");
 
-  const scrollAmount = 320; // Ajuste para controlar a rolagem
+  // Ajustar para garantir que a rolagem sempre centralize o próximo card
+  const items = document.querySelectorAll(".certificados .certificados-box");
+  const itemWidth = items[0].offsetWidth + 10; // Largura do item mais o gap entre os cards
 
   nextBtn.addEventListener("click", () => {
-    container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    // Verifica se o container já chegou ao final
+    if (container.scrollLeft + container.offsetWidth < container.scrollWidth) {
+      container.scrollBy({
+        left: itemWidth, // Rolagem suave para o próximo item
+        behavior: "smooth",
+      });
+    }
   });
 
   prevBtn.addEventListener("click", () => {
-    container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    // Verifica se o container já chegou ao início
+    if (container.scrollLeft > 0) {
+      container.scrollBy({
+        left: -itemWidth, // Rolagem suave para o item anterior
+        behavior: "smooth",
+      });
+    }
   });
 });

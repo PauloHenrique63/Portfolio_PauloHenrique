@@ -195,120 +195,35 @@ section.certificados {
   padding: 40px 4%;
 }
 
-/* Estilos para telas maiores que 1020px (desktop) */
-@media (min-width: 1021px) {
-  /* Exibe a versão dos certificados lado a lado */
-  .certificados-desktop {
-    display: block;
-  }
-
-  /* Esconde a versão mobile (carrossel) em telas grandes */
-  .certificados-mobile {
-    display: none;
-  }
-
-  .certificados .flex {
-    gap: 60px;
-  }
-
-  .certificados .certificados-box {
-    color: #fff;
-    padding: 40px;
-    margin-top: 45px;
-    border-radius: 20px;
-    transition: 0.2;
-    flex: 0 0 32%; /* Exibe os certificados em 3 colunas */
-  }
-
-  .certificados .certificados-box:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #ffffff78;
-  }
-
-  .certificados .certificados-box img {
-    width: 100%; /* Ajusta a largura da imagem */
-    max-width: 95%; /* Limita a largura da imagem */
-    height: auto; /* Mantém a proporção da imagem */
-    object-fit: cover; /* Preenche a área sem distorcer a imagem */
-    border-radius: 10%; /* Torna a imagem arredondada */
-  }
-
-  .certificados .certificados-box h3 {
-    font-size: 25px;
-    margin: 15px 0;
-  }
-
-  /* Flex container para distribuir os certificados lado a lado */
-  .certificados .flex {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
+section.certificados .flex {
+  gap: 60px;
 }
 
-/* Estilos para telas menores que 1020px (carrossel mobile) */
-/* Estilos para telas menores que 1020px (carrossel mobile) */
-@media (max-width: 1020px) {
-  /* Exibe o carrossel para telas pequenas */
-  .certificados-mobile {
-    display: block;
-  }
+.certificados .certificados-box {
+  color: #fff;
+  padding: 40px;
+  margin-top: 45px;
+  border-radius: 20px;
+  transition: 0.2;
+}
 
-  /* Esconde a versão desktop */
-  .certificados-desktop {
-    display: none;
-  }
+.certificados .certificados-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ffffff78;
+}
 
-  /* Container principal do carrossel */
-  .certificados-wrapper {
-    display: flex;
-    flex-direction: row; /* Faz com que as imagens fiquem na horizontal */
-    transition: transform 0.3s ease;
-    width: 100%; /* Garante que o carrossel ocupe 100% da largura */
-    overflow: hidden; /* Esconde o conteúdo que ultrapassar o limite da tela */
-  }
+.certificados .certificados-box img {
+  width: 100%; /* Ajusta a largura da imagem */
+  max-width: 95%; /* Limita a largura da imagem */
+  height: auto; /* Mantém a proporção da imagem */
+  width: auto;
+  object-fit: cover; /* Preenche a área sem distorcer a imagem */
+  border-radius: 10%; /* Torna a imagem arredondada */
+}
 
-  /* Certificado individual */
-  .certificados-box {
-    flex: 0 0 100%; /* Cada item ocupa 100% da largura do contêiner */
-    box-sizing: border-box;
-    margin-bottom: 20px;
-  }
-
-  /* Ajuste para as imagens no carrossel */
-  .certificados .certificados-box img {
-    width: 100%; /* A largura da imagem ocupará 100% da largura do seu contêiner */
-    height: auto; /* Mantém a proporção da imagem */
-    object-fit: cover; /* Preenche a área sem distorcer a imagem */
-    border-radius: 10%; /* Torna a imagem arredondada */
-    max-height: 300px; /* Limita a altura máxima da imagem para evitar que ela fique muito alta */
-    object-position: center; /* Garante que a imagem seja centralizada se for maior do que o contêiner */
-  }
-
-  /* Adicionando setas de navegação (opcional para o carrossel) */
-  .certificados-mobile:before,
-  .certificados-mobile:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    font-size: 2rem;
-    padding: 10px;
-    cursor: pointer;
-  }
-
-  .certificados-mobile:before {
-    left: 0;
-    padding-left: 20px;
-  }
-
-  .certificados-mobile:after {
-    right: 0;
-    padding-right: 20px;
-  }
+.certificados .certificados-box h3 {
+  font-size: 25px;
+  margin: 15px 0;
 }
 
 /* estilo das especialidades */
@@ -572,6 +487,11 @@ footer .line-footer {
     width: 100%;
   }
 
+  /* certificados */
+  .certificados-desktop {
+    display: none;
+  }
+
   /* estilo das especialidades */
   section.especialidades {
     padding: 40px 8%;
@@ -625,14 +545,73 @@ footer .line-footer {
   }
 }
 
+/* Exibe o botão de menu em telas menores que 1021px */
 #btn-menu {
   display: block;
 }
 
+/* Esconde o botão de menu em telas maiores que 1020px */
 @media screen and (min-width: 1021px) {
   #btn-menu {
     display: none;
   }
+
+  .certificados-mobile {
+    display: none;
+  }
 }
 
-/* teste do carrosel*/
+/* teste  carosel*/
+
+section.certificados {
+  padding: 40px 4%;
+}
+
+section.certificados .flex {
+  gap: 60px;
+}
+
+.certificados .certificados-box {
+  color: #fff;
+  padding: 40px;
+  margin-top: 45px;
+  border-radius: 20px;
+  transition: 0.2s;
+}
+
+.certificados .certificados-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ffffff78;
+}
+
+.certificados .certificados-box img {
+  width: 100%;
+  max-width: 95%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.certificados .certificados-box h3 {
+  font-size: 25px;
+  margin: 15px 0;
+}
+
+/* Estilos para telas menores que 1020px */
+@media screen and (max-width: 1020px) {
+  section.certificados .flex {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 10px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding-bottom: 10px;
+  }
+
+  .certificados .certificados-box {
+    min-width: 300px;
+    scroll-snap-align: center;
+  }
+}

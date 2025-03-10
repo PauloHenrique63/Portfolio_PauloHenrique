@@ -597,9 +597,17 @@ section.certificados .flex {
   margin: 15px 0;
 }
 
+/* carrosel certificados no mobile */
 /* Estilos para telas menores que 1020px */
 @media screen and (max-width: 1020px) {
-  section.certificados .flex {
+  .certificados-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .certificados .flex {
     display: grid;
     grid-auto-flow: column;
     gap: 10px;
@@ -607,17 +615,49 @@ section.certificados .flex {
     overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
-    scroll-padding: 0 50%; /* Garante que o scroll pare com o item centralizado */
+    scroll-padding: 0 50%;
+    max-width: 90%;
   }
 
   .certificados .certificados-box {
     min-width: 300px;
     scroll-snap-align: center;
   }
-}
 
+  /* Estilizando as setas com o tom de verde #00ff08 */
+  .prev,
+  .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 
+    color: #00ff08; /* Cor do ícone */
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease-in-out;
+  }
+
+  .prev {
+    left: 10px;
+  }
+
+  .next {
+    right: 10px;
+  }
   .certificados .certificados-box:hover {
     display: none;
   }
+}
 
+/* Ocultando as setas em telas maiores que 1020px */
+@media screen and (min-width: 1021px) {
+  .prev,
+  .next {
+    display: none;
+  }
+}

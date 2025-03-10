@@ -45,3 +45,19 @@ document.querySelectorAll(".menu-mobile a").forEach((anchor) => {
 });
 
 // teste
+
+document.addEventListener("DOMContentLoaded", function () {
+  const container = document.querySelector(".certificados .flex");
+  const nextBtn = document.querySelector(".next");
+  const prevBtn = document.querySelector(".prev");
+
+  const scrollAmount = 320; // Ajuste para controlar a rolagem
+
+  nextBtn.addEventListener("click", () => {
+    container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  });
+
+  prevBtn.addEventListener("click", () => {
+    container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+  });
+});
